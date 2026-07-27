@@ -1,0 +1,141 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ink-950);
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: clip;
+  background: var(--ink-950);
+  color: var(--paper-100);
+  font-family: var(--font-display);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+button,
+a {
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: var(--sand-300);
+  color: var(--ink-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sand-300);
+  outline-offset: 5px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+  padding: 12px 18px;
+  transform: translateY(-150%);
+  background: var(--paper-100);
+  color: var(--ink-950);
+  font: 500 0.75rem/1 var(--font-mono);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.section-shell {
+  width: var(--container);
+  margin-inline: auto;
+}
+
+.section-intro {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.28fr) 1fr;
+  gap: clamp(32px, 6vw, 110px);
+  align-items: start;
+}
+
+.section-intro__meta {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding-top: 14px;
+  color: var(--smoke-300);
+  font: 500 0.68rem/1 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-intro__meta span:first-child {
+  color: var(--sand-300);
+}
+
+.section-intro h2 {
+  max-width: 1060px;
+  font-size: clamp(2.9rem, 6.15vw, 6.6rem);
+  font-weight: 520;
+  line-height: 0.93;
+  letter-spacing: -0.058em;
+}
+
+.section-intro h2 span {
+  color: var(--smoke-500);
+}
+
+.section-intro--light .section-intro__meta {
+  color: rgb(8 9 11 / 58%);
+}
+
+.section-intro--light .section-intro__meta span:first-child,
+.section-intro--light h2 {
+  color: var(--ink-950);
+}
+
+.section-intro--light h2 span {
+  color: rgb(8 9 11 / 40%);
+}

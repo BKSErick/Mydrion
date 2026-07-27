@@ -1,0 +1,253 @@
+.site-header {
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  left: 50%;
+  display: flex;
+  width: var(--container);
+  height: var(--header-height);
+  align-items: center;
+  justify-content: space-between;
+  transform: translateX(-50%);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.site-header__brand {
+  position: relative;
+  z-index: 52;
+  width: 174px;
+}
+
+.site-header__brand img {
+  width: 100%;
+  height: auto;
+}
+
+.site-header__nav,
+.site-header__links {
+  display: flex;
+  align-items: center;
+}
+
+.site-header__nav {
+  gap: clamp(28px, 4vw, 64px);
+}
+
+.site-header__links {
+  gap: clamp(20px, 2.5vw, 42px);
+}
+
+.site-header__links a {
+  position: relative;
+  color: var(--smoke-300);
+  font: 500 0.71rem/1 var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 220ms ease;
+}
+
+.site-header__links a::after {
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  left: 0;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: right;
+  background: var(--sand-300);
+  content: "";
+  transition: transform 260ms var(--ease-out);
+}
+
+.site-header__links a:hover {
+  color: var(--paper-100);
+}
+
+.site-header__links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.site-header__contact {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--sand-300);
+  color: var(--paper-100);
+  font: 500 0.72rem/1 var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.site-header__contact span {
+  color: var(--sand-300);
+}
+
+.site-header__toggle {
+  position: relative;
+  z-index: 52;
+  display: none;
+  border: 0;
+  background: none;
+}
+
+.arrow-link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 0 20px;
+  font: 500 0.76rem/1 var(--font-mono);
+  transition:
+    color 260ms var(--ease-out),
+    background 260ms var(--ease-out),
+    border-color 260ms var(--ease-out);
+}
+
+.arrow-link svg {
+  transition: transform 260ms var(--ease-out);
+}
+
+.arrow-link:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.arrow-link--solid {
+  border: 1px solid var(--sand-300);
+  background: var(--sand-300);
+  color: var(--ink-950);
+}
+
+.arrow-link--solid:hover {
+  border-color: var(--paper-100);
+  background: var(--paper-100);
+}
+
+.arrow-link--outline {
+  border: 1px solid var(--line-dark);
+}
+
+.arrow-link--text {
+  min-height: 42px;
+  padding-inline: 0;
+  border-bottom: 1px solid var(--line-dark);
+  color: var(--smoke-300);
+}
+
+.arrow-link--text:hover {
+  border-color: var(--sand-300);
+  color: var(--paper-100);
+}
+
+.architecture-field {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: max(-8vw, -100px);
+  width: min(60vw, 900px);
+  height: min(100%, 940px);
+  overflow: hidden;
+  border-left: 1px solid var(--line-dark);
+  opacity: 0.74;
+}
+
+.architecture-field::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--ink-950) 0%, transparent 20%),
+    linear-gradient(0deg, var(--ink-950) 0%, transparent 22%);
+  content: "";
+  pointer-events: none;
+}
+
+.architecture-field__glow {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: rgb(249 217 177 / 15%);
+  filter: blur(100px);
+  left: calc(var(--pointer-x) - 180px);
+  top: calc(var(--pointer-y) - 180px);
+  transition:
+    left 400ms var(--ease-out),
+    top 400ms var(--ease-out);
+}
+
+.architecture-field svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(86%, 760px);
+  transform: translate(-50%, -50%);
+  overflow: visible;
+}
+
+.architecture-field__grid path {
+  fill: none;
+  stroke: rgb(255 255 255 / 5%);
+  stroke-width: 1;
+}
+
+.architecture-field__orbits {
+  fill: none;
+  stroke: rgb(249 217 177 / 30%);
+  stroke-width: 1;
+  transform-origin: 380px 380px;
+  animation: field-rotate 36s linear infinite;
+}
+
+.architecture-field__orbits circle:nth-child(2) {
+  stroke-dasharray: 4 12;
+}
+
+.architecture-field__nodes {
+  fill: var(--sand-300);
+  transform-origin: 380px 380px;
+  animation: field-rotate-reverse 24s linear infinite;
+}
+
+.architecture-field__mark {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: clamp(86px, 9vw, 144px);
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 50px rgb(249 217 177 / 16%));
+}
+
+.architecture-field__coordinate {
+  position: absolute;
+  z-index: 3;
+  color: rgb(249 217 177 / 52%);
+  font: 400 0.62rem/1 var(--font-mono);
+  letter-spacing: 0.16em;
+}
+
+.architecture-field__coordinate--top {
+  top: 124px;
+  right: 40px;
+}
+
+.architecture-field__coordinate--bottom {
+  right: 40px;
+  bottom: 40px;
+}
+
+@keyframes field-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes field-rotate-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}

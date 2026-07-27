@@ -1,0 +1,22 @@
+:root {
+  color-scheme: dark;
+  --ink-950: #08090b;
+  --ink-900: #0e1013;
+  --ink-800: #191c21;
+  --ink-700: #262a30;
+  --smoke-500: #7b7f87;
+  --smoke-300: #a4a7ae;
+  --paper-100: #f7f5f0;
+  --paper-0: #ffffff;
+  --sand-300: #f9d9b1;
+  --sand-400: #e8c49a;
+  --line-dark: rgb(255 255 255 / 12%);
+  --line-light: rgb(8 9 11 / 14%);
+  --font-display: "Instrument Sans", "Arial Narrow", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, monospace;
+  --container: min(100% - 48px, 1440px);
+  --header-height: 88px;
+  --radius-sm: 2px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
