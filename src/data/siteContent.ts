@@ -8,7 +8,7 @@ export const hero = {
     "Sistemas, sites e produtos digitais sob medida para empresas que cresceram além das soluções genéricas — da arquitetura à publicação, com tecnologia que se adapta ao negócio, não o contrário.",
   primaryCta: {
     label: "Mapear meu projeto",
-    href: contactHref
+    href: "#briefing"
   },
   secondaryCta: {
     label: "Ver projetos reais",
@@ -20,6 +20,16 @@ export const proofPoints = [
   "Produto próprio em operação",
   "Projetos reais",
   "Arquitetura + design + desenvolvimento"
+] as const;
+
+export const clientLogos = [
+  { name: "BFT", src: "/clients/bft.svg" },
+  { name: "Espaço Constru", src: "/clients/espaco-constru.svg" },
+  { name: "GTHouse", src: "/clients/gthouse.png" },
+  { name: "Metalthec", src: "/clients/metaltech.png" },
+  { name: "SPhaus", src: "/clients/sphaus.svg" },
+  { name: "Via BR", src: "/clients/viabr.svg" },
+  { name: "OStrack", src: "/clients/ostrack.svg" }
 ] as const;
 
 export const capabilities = [
@@ -87,14 +97,6 @@ export const projects = [
       "Arquitetura de gestão conectando dados comerciais, operação, relatórios e rotina de atendimento.",
     tags: ["CRM", "Dados", "Automação"],
     status: "Projeto ativo"
-  },
-  {
-    name: "Ideia Hub",
-    type: "Arquitetura e sistemas",
-    statement:
-      "Atuação técnica na construção de estruturas digitais e soluções sob medida para novas ideias e operações.",
-    tags: ["Arquitetura", "Sistemas", "Parceria"],
-    status: "Parceria técnica"
   }
 ] as const;
 

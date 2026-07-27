@@ -1,6 +1,5 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { contactHref } from "../data/siteContent";
 
 const navigation = [
   { label: "Capacidades", href: "#capacidades" },
@@ -48,9 +47,9 @@ export function SiteHeader() {
         </div>
         <a
           className="site-header__contact"
-          href={contactHref}
-          target="_blank"
-          rel="noreferrer"
+          href="#briefing"
+          data-meta-event="Contact"
+          data-meta-source="header"
           onClick={() => setIsOpen(false)}
         >
           Mapear meu projeto

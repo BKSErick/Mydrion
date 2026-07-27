@@ -12,6 +12,28 @@
   border-bottom: 1px solid var(--line-dark);
 }
 
+.page-progress {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.page-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--sand-300);
+  box-shadow: 0 0 18px rgb(249 217 177 / 38%);
+  transition: transform 80ms linear;
+}
+
 .site-header__brand {
   position: relative;
   z-index: 52;
@@ -179,6 +201,27 @@
     top 400ms var(--ease-out);
 }
 
+.architecture-field__sweep {
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  bottom: 10%;
+  left: 18%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(249 217 177 / 8%) 22%,
+    rgb(249 217 177 / 72%) 50%,
+    rgb(249 217 177 / 8%) 78%,
+    transparent
+  );
+  box-shadow: 0 0 22px rgb(249 217 177 / 34%);
+  opacity: 0;
+  animation: field-sweep 5.4s var(--ease-soft) 1.2s infinite;
+  pointer-events: none;
+}
+
 .architecture-field svg {
   position: absolute;
   top: 50%;
@@ -206,20 +249,70 @@
   stroke-dasharray: 4 12;
 }
 
+.architecture-field__tracers {
+  fill: none;
+  stroke: var(--sand-300);
+  stroke-linecap: round;
+  transform-origin: 380px 380px;
+  filter: drop-shadow(0 0 7px rgb(249 217 177 / 72%));
+  opacity: 0;
+  animation: field-tracers-enter 500ms ease 1.18s forwards;
+}
+
+.architecture-field__tracers circle:first-child {
+  stroke-width: 2.4;
+  stroke-dasharray: 90 1506;
+  animation: field-trace 5.8s linear 1.18s infinite;
+}
+
+.architecture-field__tracers circle:last-child {
+  stroke-width: 1.6;
+  stroke-dasharray: 48 920;
+  animation: field-trace-reverse 4.6s linear 1.28s infinite;
+}
+
 .architecture-field__nodes {
   fill: var(--sand-300);
   transform-origin: 380px 380px;
   animation: field-rotate-reverse 24s linear infinite;
 }
 
-.architecture-field__mark {
+.architecture-field__mark-position {
   position: absolute;
   z-index: 2;
   top: 50%;
   left: 50%;
   width: clamp(86px, 9vw, 144px);
   transform: translate(-50%, -50%);
+}
+
+.architecture-field__mark {
+  position: relative;
+  display: grid;
+  width: 100%;
+  aspect-ratio: 1;
+  place-items: center;
   filter: drop-shadow(0 0 50px rgb(249 217 177 / 16%));
+}
+
+.architecture-field__mark img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.architecture-field__mark span {
+  position: absolute;
+  inset: -34%;
+  border: 1px solid rgb(249 217 177 / 20%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: field-mark-pulse 3.2s ease-out 1.45s infinite;
+}
+
+.architecture-field__mark span:nth-child(2) {
+  inset: -62%;
+  animation-delay: 2s;
 }
 
 .architecture-field__coordinate {
@@ -249,5 +342,62 @@
 @keyframes field-rotate-reverse {
   to {
     transform: rotate(-360deg);
+  }
+}
+
+@keyframes field-sweep {
+  0%,
+  14% {
+    left: 18%;
+    opacity: 0;
+  }
+
+  24% {
+    opacity: 0.75;
+  }
+
+  74% {
+    opacity: 0.34;
+  }
+
+  86%,
+  100% {
+    left: 84%;
+    opacity: 0;
+  }
+}
+
+@keyframes field-tracers-enter {
+  to {
+    opacity: 0.92;
+  }
+}
+
+@keyframes field-trace {
+  to {
+    stroke-dashoffset: -1596;
+  }
+}
+
+@keyframes field-trace-reverse {
+  to {
+    stroke-dashoffset: 968;
+  }
+}
+
+@keyframes field-mark-pulse {
+  0% {
+    transform: scale(0.68);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 0.46;
+  }
+
+  75%,
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
   }
 }

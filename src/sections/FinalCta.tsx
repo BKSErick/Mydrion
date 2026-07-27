@@ -26,7 +26,13 @@ export function FinalCta() {
           <br />
           <span>de construir a certa.</span>
         </h2>
-        <ArrowLink href={contactHref} target="_blank" rel="noreferrer">
+        <ArrowLink
+          href={contactHref}
+          target="_blank"
+          rel="noreferrer"
+          data-meta-event="Contact"
+          data-meta-source="final-cta"
+        >
           Mapear meu projeto
         </ArrowLink>
       </motion.div>

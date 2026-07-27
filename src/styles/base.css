@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 24px);
   background: var(--ink-950);
   overflow-x: clip;
 }
@@ -36,6 +37,13 @@ a {
 }
 
 button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  color: inherit;
   font: inherit;
 }
 

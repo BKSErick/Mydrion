@@ -1,6 +1,18 @@
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Boxes, Radar } from "lucide-react";
 
 export function Products() {
+  const reduceMotion = useReducedMotion();
+  const cardMotion = {
+    initial: reduceMotion ? false : { opacity: 0, y: 42 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.25 },
+    transition: {
+      duration: reduceMotion ? 0 : 0.72,
+      ease: [0.22, 1, 0.36, 1] as const
+    }
+  };
+
   return (
     <section className="products" aria-labelledby="products-title">
       <div className="products__intro section-shell">
@@ -16,7 +28,10 @@ export function Products() {
       </div>
 
       <div className="products__grid section-shell">
-        <article className="product-card product-card--featured">
+        <motion.article
+          className="product-card product-card--featured"
+          {...cardMotion}
+        >
           <div className="product-card__top">
             <Radar aria-hidden="true" />
             <span>Em operação</span>
@@ -33,13 +48,20 @@ export function Products() {
             href="https://o-strackpagina.vercel.app/"
             target="_blank"
             rel="noreferrer"
+            data-meta-event="ViewContent"
+            data-meta-source="products"
+            data-meta-content="OStrack"
           >
             Conhecer produto
             <ArrowUpRight aria-hidden="true" size={18} />
           </a>
-        </article>
+        </motion.article>
 
-        <article className="product-card product-card--future">
+        <motion.article
+          className="product-card product-card--future"
+          {...cardMotion}
+          transition={{ ...cardMotion.transition, delay: reduceMotion ? 0 : 0.1 }}
+        >
           <div className="product-card__top">
             <Boxes aria-hidden="true" />
             <span>Laboratório</span>
@@ -53,7 +75,7 @@ export function Products() {
             </p>
           </div>
           <span className="product-card__status">Em desenvolvimento contínuo</span>
-        </article>
+        </motion.article>
       </div>
     </section>
   );

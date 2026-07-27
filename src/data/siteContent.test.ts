@@ -1,4 +1,4 @@
-import { capabilities, hero, projects } from "./siteContent";
+import { capabilities, clientLogos, hero, projects } from "./siteContent";
 
 describe("Mydrion content governance", () => {
   it("keeps the approved hero copy and CTA", () => {
@@ -19,8 +19,19 @@ describe("Mydrion content governance", () => {
     expect(projects.map(({ name }) => name)).toEqual([
       "OStrack",
       "Metalthec",
-      "Jotta Manutenções",
-      "Ideia Hub"
+      "Jotta Manutenções"
+    ]);
+  });
+
+  it("uses the complete real logo set supplied for the carousel", () => {
+    expect(clientLogos.map(({ name }) => name)).toEqual([
+      "BFT",
+      "Espaço Constru",
+      "GTHouse",
+      "Metalthec",
+      "SPhaus",
+      "Via BR",
+      "OStrack"
     ]);
   });
 
