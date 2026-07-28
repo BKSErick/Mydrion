@@ -20,6 +20,8 @@ declare global {
   }
 }
 
+export const DEFAULT_META_PIXEL_ID = "1175331711422463";
+
 function createPixelQueue(): MetaPixelFunction {
   const pixel = ((...args: Parameters<MetaPixelFunction>) => {
     if (pixel.callMethod) {
@@ -36,7 +38,9 @@ function createPixelQueue(): MetaPixelFunction {
   return pixel;
 }
 
-export function initMetaPixel(pixelId = import.meta.env.VITE_META_PIXEL_ID ?? "") {
+export function initMetaPixel(
+  pixelId = import.meta.env.VITE_META_PIXEL_ID || DEFAULT_META_PIXEL_ID
+) {
   const cleanPixelId = pixelId.trim();
 
   if (!cleanPixelId || typeof window === "undefined") return false;

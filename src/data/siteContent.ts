@@ -5,7 +5,7 @@ export const hero = {
   eyebrow: "SISTEMAS / SITES / PRODUTOS DIGITAIS",
   headline: "CONSTRUÍMOS O QUE NÃO EXISTE PRONTO.",
   body:
-    "Sistemas, sites e produtos digitais sob medida para empresas que cresceram além das soluções genéricas — da arquitetura à publicação, com tecnologia que se adapta ao negócio, não o contrário.",
+    "Sistemas, sites e produtos digitais sob medida para empresas que cresceram além das soluções genéricas. Da arquitetura à publicação, criamos tecnologia que se adapta ao negócio, não o contrário.",
   primaryCta: {
     label: "Mapear meu projeto",
     href: "#briefing"

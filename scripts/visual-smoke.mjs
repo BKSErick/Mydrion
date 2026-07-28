@@ -34,6 +34,9 @@ async function inspectViewport(name, viewport, fullPage = false) {
     content: document.documentElement.scrollWidth,
     title: document.title,
     heading: document.querySelector("h1")?.getAttribute("aria-label"),
+    titleMaskPaddingTop: parseFloat(
+      getComputedStyle(document.querySelector(".hero__title-mask")).paddingTop
+    ),
     offenders: Array.from(document.querySelectorAll("*"))
       .map((element) => {
         const bounds = element.getBoundingClientRect();
@@ -63,6 +66,10 @@ async function inspectViewport(name, viewport, fullPage = false) {
 
   if (dimensions.heading !== "CONSTRUÍMOS O QUE NÃO EXISTE PRONTO.") {
     failures.push(`${name}: hero divergente`);
+  }
+
+  if (dimensions.titleMaskPaddingTop <= 0) {
+    failures.push(`${name}: máscara do hero pode cortar acentos`);
   }
 
   await page.screenshot({

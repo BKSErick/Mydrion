@@ -1,4 +1,8 @@
-import { initMetaPixel, trackMetaEvent } from "./metaPixel";
+import {
+  DEFAULT_META_PIXEL_ID,
+  initMetaPixel,
+  trackMetaEvent
+} from "./metaPixel";
 
 describe("Meta Pixel integration", () => {
   afterEach(() => {
@@ -13,6 +17,12 @@ describe("Meta Pixel integration", () => {
   it("does not initialize without a configured pixel id", () => {
     expect(initMetaPixel("")).toBe(false);
     expect(window.fbq).toBeUndefined();
+  });
+
+  it("uses the confirmed Mydrion pixel in production by default", () => {
+    expect(DEFAULT_META_PIXEL_ID).toBe("1175331711422463");
+    expect(initMetaPixel(DEFAULT_META_PIXEL_ID)).toBe(true);
+    expect(window.__mydrionMetaPixelId).toBe("1175331711422463");
   });
 
   it("forwards events when the pixel API is available", () => {

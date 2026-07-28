@@ -3,6 +3,7 @@ import { capabilities, clientLogos, hero, projects } from "./siteContent";
 describe("Mydrion content governance", () => {
   it("keeps the approved hero copy and CTA", () => {
     expect(hero.headline).toBe("CONSTRUÍMOS O QUE NÃO EXISTE PRONTO.");
+    expect(hero.body).not.toContain("—");
     expect(hero.primaryCta.label).toBe("Mapear meu projeto");
   });
 

@@ -56,6 +56,8 @@
 .hero__title-mask {
   display: block;
   overflow: hidden;
+  margin-top: -0.12em;
+  padding-top: 0.12em;
   padding-bottom: 0.08em;
 }
 
