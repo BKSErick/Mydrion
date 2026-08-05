@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { initGoogleAnalytics } from "./googleAnalytics";
 import {
   initMetaPixel,
   trackMetaCustomEvent,
@@ -10,6 +11,7 @@ const DEPTH_MILESTONES = [25, 50, 75, 90] as const;
 export function usePageExperience() {
   useEffect(() => {
     initMetaPixel();
+    initGoogleAnalytics();
 
     const reachedDepths = new Set<number>();
     let frame = 0;
