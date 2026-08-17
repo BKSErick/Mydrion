@@ -64,7 +64,12 @@ async function inspectViewport(name, viewport, fullPage = false) {
     failures.push(`${name}: título ausente`);
   }
 
-  if (dimensions.heading !== "CONSTRUÍMOS O QUE NÃO EXISTE PRONTO.") {
+  // Fonte da verdade: `hero.headline` em src/data/siteContent.ts.
+  // Comparação exata de propósito: além de detectar hero errado, ela pega
+  // corrupção de acento (ver checagem de titleMaskPaddingTop logo abaixo).
+  if (
+    dimensions.heading !== "A GENTE ORGANIZA O COMERCIAL E A OPERAÇÃO DE QUEM FABRICA."
+  ) {
     failures.push(`${name}: hero divergente`);
   }
 
@@ -95,11 +100,11 @@ async function inspectViewport(name, viewport, fullPage = false) {
         "https://connect.facebook.net/en_US/fbevents.js"
     ) {
       failures.push(
-        `${name}: Meta Pixel nÃ£o foi inicializado com o ID confirmado`
+        `${name}: Meta Pixel não foi inicializado com o ID confirmado`
       );
     }
     if (trackingAndProjects.hasRemovedProject) {
-      failures.push(`${name}: Ideia Hub ainda aparece na pÃ¡gina`);
+      failures.push(`${name}: Ideia Hub ainda aparece na página`);
     }
     if (trackingAndProjects.projectTotal !== "03") {
       failures.push(
@@ -145,7 +150,7 @@ async function inspectViewport(name, viewport, fullPage = false) {
     }
     if (logoPresentation.projectScrollbar !== "none") {
       failures.push(
-        `${name}: scrollbar dos projetos estÃ¡ ${logoPresentation.projectScrollbar}`
+        `${name}: scrollbar dos projetos está ${logoPresentation.projectScrollbar}`
       );
     }
     if (!logoPresentation.hasPageProgress) {
@@ -183,7 +188,7 @@ async function inspectViewport(name, viewport, fullPage = false) {
     const requiredFields = await brief.locator("[required]").count();
     if (requiredFields < 4) {
       failures.push(
-        `${name}: briefing encontrou somente ${requiredFields} campos obrigatÃ³rios`
+        `${name}: briefing encontrou somente ${requiredFields} campos obrigatórios`
       );
     }
     const formAffordance = await brief.evaluate((section) => {
@@ -212,7 +217,7 @@ async function inspectViewport(name, viewport, fullPage = false) {
       formAffordance.requiredMarkers < 4
     ) {
       failures.push(
-        `${name}: affordance do formulÃ¡rio invÃ¡lida ${JSON.stringify(formAffordance)}`
+        `${name}: affordance do formulário inválida ${JSON.stringify(formAffordance)}`
       );
     }
     await page.screenshot({
@@ -285,7 +290,7 @@ async function inspectHeroMotion() {
     earlyState.sweepAnimation !== "field-sweep"
   ) {
     failures.push(
-      `hero-motion: sequÃªncia invÃ¡lida ${JSON.stringify({ earlyState, finalState })}`
+      `hero-motion: sequência inválida ${JSON.stringify({ earlyState, finalState })}`
     );
   }
 
@@ -375,7 +380,7 @@ if (
   reducedMotionLogos.logosOutsideCells > 0
 ) {
   failures.push(
-    `reduced-motion: carrossel estÃ¡tico invÃ¡lido ${JSON.stringify(reducedMotionLogos)}`
+    `reduced-motion: carrossel estático inválido ${JSON.stringify(reducedMotionLogos)}`
   );
 }
 await reducedMotionPage.screenshot({
