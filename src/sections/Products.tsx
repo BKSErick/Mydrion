@@ -17,7 +17,7 @@ export function Products() {
     <section className="products" aria-labelledby="products-title">
       <div className="products__intro section-shell">
         <p>
-          <span>05</span>
+          <span>06</span>
           Produtos Mydrion
         </p>
         <h2 id="products-title">

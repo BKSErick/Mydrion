@@ -158,22 +158,6 @@ export function ArchitectureField({
         </motion.div>
       </div>
 
-      <motion.span
-        className="architecture-field__coordinate architecture-field__coordinate--top"
-        initial={motionEnabled ? { opacity: 0, x: 12 } : false}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: motionEnabled ? 0.6 : 0, delay: 0.9 }}
-      >
-        M / 01
-      </motion.span>
-      <motion.span
-        className="architecture-field__coordinate architecture-field__coordinate--bottom"
-        initial={motionEnabled ? { opacity: 0, x: 12 } : false}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: motionEnabled ? 0.6 : 0, delay: 1.02 }}
-      >
-        19°55′S / 43°56′W
-      </motion.span>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { usePageExperience } from "./lib/usePageExperience";
 import { About } from "./sections/About";
+import { Boundaries } from "./sections/Boundaries";
 import { Capabilities } from "./sections/Capabilities";
 import { ClientMarquee } from "./sections/ClientMarquee";
 import { FinalCta } from "./sections/FinalCta";
@@ -25,6 +26,7 @@ export default function App() {
         <ClientMarquee />
         <Manifesto />
         <Capabilities />
+        <Boundaries />
         <Projects />
         <Process />
         <Products />

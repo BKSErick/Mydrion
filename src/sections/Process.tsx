@@ -13,7 +13,7 @@ export function Process() {
     >
       <SectionIntro
         id="process-title"
-        index="04"
+        index="05"
         eyebrow="Método"
         title={
           <>

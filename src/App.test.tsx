@@ -8,7 +8,7 @@ describe("Mydrion institutional page", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /construímos o que não existe pronto/i
+        name: /a gente organiza o comercial e a operação de quem fabrica/i
       })
     ).toBeInTheDocument();
     expect(
@@ -29,13 +29,47 @@ describe("Mydrion institutional page", () => {
     );
   });
 
-  it("presents the four capabilities without niching the company to industry", () => {
+  it("presents the four capabilities as an industrial ladder", () => {
     render(<App />);
 
-    expect(screen.getByText("Sistemas sob medida")).toBeInTheDocument();
-    expect(screen.getByText("Sites estratégicos")).toBeInTheDocument();
+    expect(
+      screen.getByText("Páginas industriais com Ficha de Escopo")
+    ).toBeInTheDocument();
+    expect(screen.getByText("Sistemas de operação")).toBeInTheDocument();
     expect(screen.getByText("Produtos SaaS")).toBeInTheDocument();
-    expect(screen.getByText("IA e automação")).toBeInTheDocument();
+    expect(screen.getByText("Automação e IA")).toBeInTheDocument();
+  });
+
+  it("renders the scope boundaries right after the capabilities", () => {
+    render(<App />);
+
+    const boundariesSection = document.querySelector<HTMLElement>(".boundaries");
+
+    expect(boundariesSection).not.toBeNull();
+    if (!boundariesSection) throw new Error("boundaries section not rendered");
+    expect(
+      within(boundariesSection).getByRole("heading", {
+        name: "A Mydrion entra quando"
+      })
+    ).toBeInTheDocument();
+    expect(
+      within(boundariesSection).getByRole("heading", {
+        name: "A Mydrion não entra quando"
+      })
+    ).toBeInTheDocument();
+    expect(
+      within(boundariesSection).getByText(
+        "O que falta é um ERP fiscal, financeiro ou de estoque."
+      )
+    ).toBeInTheDocument();
+
+    const sections = Array.from(
+      document.querySelectorAll("main > section")
+    ).map((section) => section.className.split(" ")[0]);
+
+    expect(sections.indexOf("boundaries")).toBe(
+      sections.indexOf("capabilities") + 1
+    );
   });
 
   it("exposes real projects and an accessible navigation landmark", () => {

@@ -197,6 +197,14 @@
     opacity: 1;
   }
 
+  .boundaries__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .boundaries__intro {
+    margin-left: 0;
+  }
+
   .projects {
     overflow: visible;
   }

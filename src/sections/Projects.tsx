@@ -180,7 +180,7 @@ export function Projects() {
       <div className="projects__header section-shell">
         <SectionIntro
           id="projects-title"
-          index="03"
+          index="04"
           eyebrow="Trabalho em movimento"
           tone="light"
           title={

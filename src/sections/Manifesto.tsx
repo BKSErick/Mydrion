@@ -29,7 +29,7 @@ export function Manifesto() {
           </p>
           <p>
             A Mydrion entra nesse ponto: entende a lógica, desenha a arquitetura e
-            constrói a solução certa — seja um sistema, um site ou um produto digital.
+            constrói a solução certa, seja um sistema, um site ou um produto digital.
           </p>
         </div>
       </motion.div>

@@ -5,7 +5,10 @@ import { ArchitectureField } from "../components/ArchitectureField";
 import { ArrowLink } from "../components/ArrowLink";
 import { hero, proofPoints } from "../data/siteContent";
 
-const headlineLines = ["CONSTRUÍMOS O QUE", "NÃO EXISTE PRONTO."];
+const headlineLines = [
+  "A GENTE ORGANIZA O COMERCIAL",
+  "E A OPERAÇÃO DE QUEM FABRICA."
+];
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {

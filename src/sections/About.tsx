@@ -9,7 +9,7 @@ export function About() {
     >
       <SectionIntro
         id="about-title"
-        index="06"
+        index="07"
         eyebrow="Mydrion"
         title={
           <>

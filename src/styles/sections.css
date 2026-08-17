@@ -502,6 +502,77 @@
   font: 500 0.72rem/1.2 var(--font-mono);
 }
 
+.boundaries {
+  padding-bottom: clamp(110px, 14vw, 200px);
+}
+
+.boundaries__intro {
+  max-width: 700px;
+  margin-top: clamp(30px, 4vw, 52px);
+  margin-left: auto;
+  color: var(--smoke-300);
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  line-height: 1.65;
+}
+
+.boundaries__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+  margin-top: clamp(52px, 7vw, 96px);
+  border-top: 1px solid var(--line-dark);
+}
+
+.boundary-card {
+  padding-top: clamp(32px, 4vw, 54px);
+}
+
+.boundary-card__title {
+  margin-bottom: 30px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-dark);
+  font-size: clamp(1.25rem, 1.9vw, 1.7rem);
+  font-weight: 520;
+  letter-spacing: -0.028em;
+}
+
+.boundary-card--out .boundary-card__title {
+  color: var(--smoke-300);
+}
+
+.boundary-card__list {
+  display: grid;
+  gap: 20px;
+  list-style: none;
+}
+
+.boundary-card__list li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 12px;
+  align-items: start;
+  color: var(--smoke-300);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
+}
+
+.boundary-card__list svg {
+  margin-top: 3px;
+}
+
+.boundary-card--fits .boundary-card__list svg {
+  color: var(--sand-300);
+}
+
+.boundary-card--out .boundary-card__list svg {
+  color: var(--smoke-300);
+  opacity: 0.55;
+}
+
+.boundary-card--fits .boundary-card__list li {
+  color: var(--paper-100);
+}
+
 .projects {
   position: relative;
   overflow: hidden;
